@@ -17,6 +17,9 @@ import CareerComponent from "./components/footer/career.tsx";
 import CollabHome from "./components/collab/CollabHome";
 import CollabRoom from "./components/collab/CollabRoom";
 import StoriesComponent from "./components/stories/stories.component";
+import PublishedStoriesComponent from "./components/dashboard/posts/published_stories.component";
+
+
 
 
 import ScrollToTopButton from "./components/ScrollToTopButton";
@@ -145,7 +148,12 @@ const router = createBrowserRouter([
           { path: "users", element: <UserComponent /> },
           {
             element: <ProtectedRoute allowedRoles={[USER_ROLE.USER, USER_ROLE.WRITER]} />,
-            children: [{ path: "settings", element: <SettingComponent /> }],
+            children: [{ path: "settings", element: <SettingComponent /> },
+              {
+    path: "published-stories",
+    element: <PublishedStoriesComponent />,
+  },
+            ],
           },
           {
             element: <ProtectedRoute allowedRoles={[USER_ROLE.WRITER]} />,
